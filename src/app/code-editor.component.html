@@ -1,0 +1,11 @@
+<h1>Code Editor</h1>
+<nav>
+    <ul>
+        <li *ngFor="let robot of robotFactory.robots"
+            (click)="onRobotChosen(robot.getId())"
+            [class.selected]="robot.getId() === activeRobot">Robot {{robot.getId()}} code
+        </li>
+    </ul>
+</nav>
+<textarea *ngIf="activeRobot" [(ngModel)] = "activeRobotScript"></textarea>
+<button (click)="onRunButtonClick()">play</button>
